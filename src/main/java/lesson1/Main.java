@@ -9,15 +9,58 @@ public class Main {
         ex3();
     }
 
-    private static void ex3() {
-        //Дан массив nums = [3,2,2,3] и число val = 3.
-        //Если в массиве есть числа, равные заданному, нужно перенести эти элементы в конец массива.
-        //Таким образом, первые несколько (или все) элементов массива должны быть отличны от заданного,
-        //а остальные - равны ему.
-        int[] arr = new int[]{3, 2, 2, 3};
+    public static void ex3() {
+        int[] arr = {3, 2, 2, 3, 5, 6, 6, 7};
         int val = 3;
-        list
+        int temp = 0;
+        int indexEnd = arr.length - 1;
+        int indexStart = 0;
+
+        for (int i = 0; indexStart < indexEnd; i++) {
+            if (arr[indexStart] != val) {
+                indexStart++;
+            } else if (arr[indexEnd] == val) {
+                indexEnd--;
+            } else {
+                temp = arr[indexEnd];
+                arr[indexEnd] = arr[indexStart];
+
+                arr[indexStart] = temp;
+                indexStart++;
+                indexEnd--;
+            }
+
+       for (int num : arr) {
+            System.out.println(num);
+       }
+        }
+//        System.out.println(Arrays.toString(arr));
     }
+//    int[] arr = {3, 2, 2, 3, 5, 6, 6, 7};
+//    int val = 3;
+//    int temp = 0;
+//    int indexEnd = arr.length - 1;
+//    int indexStart = 0;
+//    for (int i = 0; indexStart < indexEnd; i++) {
+//        if (arr[i] != val){
+//            indexStart += 1;
+//        }
+//        else if (arr[i] == val) {
+//            if (arr[indexEnd] != val) {
+//                temp = arr[indexEnd];
+//                arr[indexEnd] = arr[indexStart];
+//                arr[indexStart] = temp;
+//                indexStart += 1;
+//                indexEnd -= 1;
+//            } else {
+//                indexEnd -= 1;
+//            }
+//        }
+//    }
+//    for (int num : arr) {
+//        System.out.println(num);
+//    }
+//}
         public static void ex1 () {
             System.out.println("Введите имя:");
             Scanner scanner = new Scanner(System.in);
@@ -30,14 +73,14 @@ public class Main {
             int[] arr = new int[]{1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0};
             int count = 0;
             int max = 0;
-            for (int i = 0; i < arr.length; i++) {
-                int num = arr[i];
+            for (int num : arr) {
+//                перебор массива с помощью :
                 if (num == 1) {
                     count += 1;
                     if (count > max) {
                         max = count;
                     }
-                } else if (num != 1) {
+                } else {
                     count = 0;
                 }
             }
