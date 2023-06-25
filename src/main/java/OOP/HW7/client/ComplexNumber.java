@@ -29,6 +29,6 @@ public class ComplexNumber {
 
     @Override
     public String toString() {
-        return String.format("%d + %di", a,b);
+        return String.format("%d+%di", a,b);
     }
 }
